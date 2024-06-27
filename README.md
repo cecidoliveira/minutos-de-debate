@@ -8,4 +8,8 @@ Programa criado para contabilizar o tempo de cada debatedor tem para expor ou de
 ![temporizador_screen](https://github.com/cecidoliveira/minutos-de-debate/assets/108581198/c5ee765b-093b-4fc8-8e51-8e08e1fe9fff)
 ![configuracao_screen](https://github.com/cecidoliveira/minutos-de-debate/assets/108581198/a793d495-ce30-49eb-9382-a243cac96173)
 
+> Stacks utilizadas
+&nbsp;
+
+[![Stacks](https://skillicons.dev/icons?i=html,css,js,electron)](https://skillicons.dev)
 
