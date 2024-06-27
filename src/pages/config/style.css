@@ -1,0 +1,46 @@
+body{
+    font-family: Arial; 
+    overflow-y: hidden;
+    display: flex;
+    height: 100vh;
+}
+
+.conteiner-conf {
+    width: 700px;
+    display: flex;
+    margin: auto;
+    padding: 10px 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    justify-content: space-around;
+}
+
+.conf-temp input{
+    font-size: 20px;
+    width: 50%;
+    margin-left: 30px;
+    text-align: center;
+}
+
+.info{
+    color: #2962D6;
+    font-weight: 600;
+}
+
+.controles p{
+    padding-bottom: 15px;
+}
+
+#espaco{
+    margin-bottom: 15px; 
+} 
+.conf-temp > button[type="submit"]{
+    color: #ffffff;
+    border: none;
+    width: 40%;
+    height: 40px;
+    margin-left: 50px;
+    font-size: 20px;
+    background-color: #2962D6;
+    border-radius: 5px;
+}

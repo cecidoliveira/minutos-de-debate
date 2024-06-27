@@ -1,0 +1,19 @@
+{
+  "name": "minutos-de-debate",
+  "version": "1.0.0",
+  "description": "contabilizar o tempo de cada debatedor para expor ou defender sua tese ou tema",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "electronJS",
+    "Timer"
+  ],
+  "author": "cecidoliveira",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^31.1.0"
+  }
+}

@@ -1,0 +1,44 @@
+body{
+    font-family: Arial; 
+    overflow-y: hidden;
+}
+
+.conteiner{
+    position: relative;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  
+}
+
+.temp{
+    margin: auto;
+    color: #ffffff;
+    font-size: 25em;
+}
+
+.tempo{
+    animation-name: time;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+.aviso{
+    color: #ff0000;
+}
+
+@keyframes time{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 1035px) {
+    .temp{
+        font-size: 19rem;
+    }
+}
