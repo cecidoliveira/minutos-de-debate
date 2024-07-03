@@ -1,59 +1,78 @@
 let timer,seg,min;
- 
+let pause = true;
+
 function iniciarTemporizador(tempo,temporizador){
-    min = parseInt(tempo[0]);
-    seg = parseInt(tempo[1]); 
+    min = Math.floor(tempo / 60);
+    seg = tempo % 60;
 
-    timer = setInterval(function() {
-        
-        if(seg == 0){
-            if(min == 0){
-                temporizador.classList.remove('tempo');
-                clearInterval(timer);
-                seg = 1;       
-            }else{
-                min--;
-                seg = 60; 
-            }
-        }
-        seg --;
-
-        minutes = min < 10 ? "0" + min : min;
-        seconds = seg < 10 ? "0" + seg : seg;
-
-        temporizador.innerHTML = minutes+":"+seconds; 
-
+    if(pause == true){            
+        temporizador.innerHTML = `${min < 10 ? "0" + min : min}:${seg < 10 ? "0" + seg : seg}`;
         if(min == 0 && seg <= 10 && seg != 0){
-            temporizador.classList.add('tempo','aviso');
+            temporizador.classList.add('aviso');
+        }else{ 
+            temporizador.classList.remove('aviso');
         }
+    }else{
+        timer = setInterval(function() {
+        
+            if(seg == 0){
+                if(min == 0){
+                    temporizador.classList.remove('tempo');
+                    clearInterval(timer);
+                    seg = 1;       
+                }else{
+                    min--;
+                    seg = 60; 
+                }
+            }
+            seg --;
+    
+            temporizador.innerHTML = `${min < 10 ? "0" + min : min}:${seg < 10 ? "0" + seg : seg}`; 
+            pause = false;
+            if(min == 0 && seg <= 10 && seg != 0){
+                temporizador.classList.add('tempo','aviso');
+            }else{ 
+                temporizador.classList.remove('tempo','aviso');
+            }
+        },1000);    
+    }
+}
 
-    },1000);
-
+function updateTempo(tempo){
+    let minutes = parseInt(tempo[0]) * 60;
+    return parseInt(tempo[1]) + minutes;
 }
 
 function defValorTemporizador(kpress){
     deftimer = localStorage.getItem("timer");
-
     //Temporizador 00:00
     const temporizador = document.querySelector(".temp");
     let tempo = temporizador.innerHTML.split(':');
-
+    tempo = updateTempo(tempo)
     clearInterval(timer);
 
     switch (kpress){
-        case "KeyS":
+        case "Enter":
             //iniciar
+            pause = false;
+            iniciarTemporizador(tempo,temporizador);
+            break;
+        case "NumpadEnter":
+            //iniciar
+            pause = false;
             iniciarTemporizador(tempo,temporizador);
             break;
         case "Space":
             //parar
-            if(seg <=10 && min == 0){
-                temporizador.classList.remove('tempo','aviso');
-                temporizador.classList.add('aviso');
+            clearInterval(timer)
+            pause = true;
+            if(tempo <= 10){
+                temporizador.classList.remove('tempo');
             }
             break;
         case "KeyT":
             //deftimer
+            pause = true;
             temporizador.classList.remove('tempo','aviso');
             if (deftimer === null || deftimer == "00:00"){
                 deftimer = "59:00";
@@ -64,14 +83,22 @@ function defValorTemporizador(kpress){
             //zerar
             temporizador.classList.remove('tempo','aviso');
             temporizador.innerHTML = "00:00";
-            break;    
+            pause = true;
+            break;  
+        case "KeyP":
+            if(tempo < 3530){
+                tempo += 10;
+                iniciarTemporizador(tempo,temporizador)
+            } 
+            break;
+
     }
 }
 
 //getkeypress (confs)
 window.onstorage = () => {
     let key = localStorage.getItem("keypressing");
-    if( key == "KeyS" || key == "Space" || key == "KeyT" || key == "KeyZ"){
+    if( key == "Enter" || key == "Space" || key == "KeyT" || key == "KeyZ" || key == "KeyP"){
         defValorTemporizador(key);
     }
 };

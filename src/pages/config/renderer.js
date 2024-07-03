@@ -2,7 +2,8 @@ if (localStorage.getItem("timer") !== null){
     inserirValores();
 }
 
-function getTemp(){
+document.getElementById('def-temp').addEventListener('click', function() {
+    this.blur();
     const temp = document.getElementById('defTimer').value;
     const info = document.getElementById('menssage');
 
@@ -16,7 +17,7 @@ function getTemp(){
         info.innerText = "valor invalido (ex: 59:00)";
         setTimeout(() => {
             info.innerText = ""
-        }, 5000);
+        }, 3000);
         
     }else{
         localStorage.setItem("timer", temp);
@@ -27,9 +28,9 @@ function getTemp(){
         info.innerText = "timer definido"
         setTimeout(() => {
             info.innerText = ""
-        }, 5000);
-    }  
-}
+        }, 3000);
+    } 
+});
 
 function inserirValores(){ 
     const conteudo = document.querySelector('#defTimer');
@@ -41,8 +42,11 @@ document.addEventListener('keypress', function(p){
     let kpress = p.code;
 
     switch (kpress){
-        case "KeyS":
-            localStorage.setItem('keypressing', 'KeyS');
+        case "Enter":
+            localStorage.setItem('keypressing', 'Enter');
+            break;
+        case "NumpadEnter":
+            localStorage.setItem('keypressing', 'Enter');
             break;
         case "Space":
             localStorage.setItem('keypressing', 'Space');
@@ -50,6 +54,9 @@ document.addEventListener('keypress', function(p){
         case "KeyT":
             localStorage.setItem('keypressing', 'KeyT');
             break;
+        case "KeyP":
+            localStorage.setItem('keypressing', 'KeyP');
+            break;  
         case "KeyZ":
             localStorage.setItem('keypressing', 'KeyZ');
             break;    
