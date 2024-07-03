@@ -3,44 +3,54 @@ body{
     overflow-y: hidden;
     display: flex;
     height: 100vh;
+    font-size: 62.5%;
 }
 
 .conteiner-conf {
     width: 700px;
     display: flex;
     margin: auto;
-    padding: 10px 10px;
+    padding: 2rem;
     background-color: #ffffff;
-    border-radius: 10px;
+    border-radius: 1rem;
     justify-content: space-around;
 }
 
+.conf p{
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+.conf-temp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
 .conf-temp input{
-    font-size: 20px;
-    width: 50%;
-    margin-left: 30px;
+    font-size: 2rem;
+    width: 10rem;
     text-align: center;
 }
 
+h2{
+    font-size: 1.7rem;
+}
 .info{
     color: #2962D6;
     font-weight: 600;
 }
 
 .controles p{
-    padding-bottom: 15px;
+    padding-bottom: 1rem;
+    font-size: 1.1rem;
 }
-
-#espaco{
-    margin-bottom: 15px; 
-} 
-.conf-temp > button[type="submit"]{
+.conf-temp > button{
     color: #ffffff;
     border: none;
-    width: 40%;
-    height: 40px;
-    margin-left: 50px;
-    font-size: 20px;
+    padding: 0 1rem;
+    height: 3rem;
+    font-size: 1.5rem;
     background-color: #2962D6;
-    border-radius: 5px;
+    border-radius: 5rem;
 }

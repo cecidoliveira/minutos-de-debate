@@ -1,6 +1,7 @@
 body{
     font-family: Arial; 
     overflow-y: hidden;
+    font-size: 62.5%;
 }
 
 .conteiner{
@@ -15,7 +16,7 @@ body{
 .temp{
     margin: auto;
     color: #ffffff;
-    font-size: 25em;
+    font-size: 25rem;
 }
 
 .tempo{

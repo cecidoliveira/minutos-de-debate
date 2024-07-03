@@ -31,23 +31,17 @@ function iniciarTemporizador(tempo,temporizador){
 
 }
 
-//teclado
-document.addEventListener('keypress',function(p){
-    pergunta = localStorage.getItem("pergunta");
-    resposta = localStorage.getItem("resposta");
-    replica = localStorage.getItem("replica");
-    treplica = localStorage.getItem("treplica");
+function defValorTemporizador(kpress){
+    deftimer = localStorage.getItem("timer");
 
-    let kpress = p.code;
-
-        //Temporizador 00:00
+    //Temporizador 00:00
     const temporizador = document.querySelector(".temp");
     let tempo = temporizador.innerHTML.split(':');
 
     clearInterval(timer);
 
     switch (kpress){
-        case "Enter":
+        case "KeyS":
             //iniciar
             iniciarTemporizador(tempo,temporizador);
             break;
@@ -58,41 +52,32 @@ document.addEventListener('keypress',function(p){
                 temporizador.classList.add('aviso');
             }
             break;
-        case "KeyP":
-            //pergunta
-            temporizador.classList.remove('tempo','aviso');
-            if (pergunta === null || pergunta == "00:00"){
-                pergunta = "02:00"
-            }
-            temporizador.innerHTML = pergunta;
-            break;
-        case "KeyR":
-            //resposta
-            if (resposta === null || resposta == "00:00"){
-                resposta = "04:00"
-            }
-            temporizador.classList.remove('tempo','aviso');
-            temporizador.innerHTML = resposta;  
-            break;
-        case "KeyO":
-            //replica
-            temporizador.classList.remove('tempo','aviso');
-            if (replica === null || replica == "00:00"){
-                replica = "01:00" 
-            }
-            temporizador.innerHTML = replica;
-            break;
         case "KeyT":
-            //treplica
-            if (treplica === null || treplica == "00:00"){
-                treplica = "03:00"
-            }
+            //deftimer
             temporizador.classList.remove('tempo','aviso');
-            temporizador.innerHTML = treplica;  
+            if (deftimer === null || deftimer == "00:00"){
+                deftimer = "59:00";
+            }
+            temporizador.innerHTML = deftimer;
             break;
         case "KeyZ":
             //zerar
             temporizador.classList.remove('tempo','aviso');
-            temporizador.innerHTML = "00:00";    
+            temporizador.innerHTML = "00:00";
+            break;    
     }
+}
+
+//getkeypress (confs)
+window.onstorage = () => {
+    let key = localStorage.getItem("keypressing");
+    if( key == "KeyS" || key == "Space" || key == "KeyT" || key == "KeyZ"){
+        defValorTemporizador(key);
+    }
+};
+
+//getkeypress (timer)
+document.addEventListener('keypress',function(p){
+    let kpress = p.code;
+    defValorTemporizador(kpress);
 });
