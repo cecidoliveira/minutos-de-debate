@@ -6,7 +6,9 @@ Programa criado para contabilizar o tempo de cada debatedor tem para expor ou de
 - Foram criados duas telas ( uma delas contendo o temporizador disponivel do debatedor da vez e a outra tela com ajustes de tempo e atalhos que estão configurados para manipulação da tela do timer )
   
 ![temporizador_screen](https://github.com/cecidoliveira/minutos-de-debate/assets/108581198/c5ee765b-093b-4fc8-8e51-8e08e1fe9fff)
-![configuracao_screen](https://github.com/cecidoliveira/minutos-de-debate/assets/108581198/a793d495-ce30-49eb-9382-a243cac96173)
+![config_screen](https://github.com/cecidoliveira/minutos-de-debate/assets/108581198/9022e9f4-5300-4681-803c-d1c655f6da27)
+
+
 
 > Stacks utilizadas
 &nbsp;
