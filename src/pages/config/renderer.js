@@ -40,7 +40,7 @@ function inserirValores(){
 //setkeypress (config)
 document.addEventListener('keypress', function(p){
     let kpress = p.code;
-
+    let set_seconds = false;
     switch (kpress){
         case "Enter":
             localStorage.setItem('keypressing', 'Enter');
@@ -56,9 +56,13 @@ document.addEventListener('keypress', function(p){
             break;
         case "KeyP":
             localStorage.setItem('keypressing', 'KeyP');
+            set_seconds = true;
             break;  
         case "KeyZ":
             localStorage.setItem('keypressing', 'KeyZ');
             break;    
+    }
+    if(set_seconds){
+        localStorage.setItem('keypressing', '');
     }
 });
