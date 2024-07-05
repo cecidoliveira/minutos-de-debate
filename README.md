@@ -13,3 +13,20 @@ Programa criado para contabilizar o tempo de cada debatedor tem para expor ou de
 
 [![Stacks](https://skillicons.dev/icons?i=html,css,js,electron)](https://skillicons.dev)
 
+-----
+
+
+### Inicialização do projeto
+```
+npm install
+npm install --save-dev @electron-forge/cli
+npm exec --package=@electron-forge/cli -c "electron-forge import"
+npm run start
+```
+### Criação dos executaveis p/ win x32 e x64
+```
+npm install electron-squirrel-startup
+npm run make -- --arch="ia32,x64"
+```
+
+
