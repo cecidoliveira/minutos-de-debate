@@ -3,15 +3,16 @@ body{
     overflow-y: hidden;
     display: flex;
     height: 100vh;
+    font-size: 62.5%;
 }
 
 .conteiner-conf {
     width: 700px;
     display: flex;
     margin: auto;
-    padding: 10px 10px;
+    padding: 2rem;
     background-color: #ffffff;
-    border-radius: 10px;
+    border-radius: 1rem;
     justify-content: space-around;
 }
 
