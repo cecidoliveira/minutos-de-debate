@@ -5,13 +5,15 @@ function iniciarTemporizador(tempo,temporizador){
     min = Math.floor(tempo / 60);
     seg = tempo % 60;
 
-    if(pause == true){            
+    if(pause === true){            
         temporizador.innerHTML = `${min < 10 ? "0" + min : min}:${seg < 10 ? "0" + seg : seg}`;
+        console.log('pause true')
         if(min == 0 && seg <= 10 && seg != 0){
             temporizador.classList.add('aviso');
         }else{ 
             temporizador.classList.remove('aviso');
         }
+        
     }else{
         timer = setInterval(function() {
         
@@ -28,13 +30,14 @@ function iniciarTemporizador(tempo,temporizador){
             seg --;
     
             temporizador.innerHTML = `${min < 10 ? "0" + min : min}:${seg < 10 ? "0" + seg : seg}`; 
-            pause = false;
+            // pause = false;
             if(min == 0 && seg <= 10 && seg != 0){
                 temporizador.classList.add('tempo','aviso');
             }else{ 
                 temporizador.classList.remove('tempo','aviso');
             }
-        },1000);    
+        },1000);
+        console.log('pause false')    
     }
 }
 
@@ -75,7 +78,7 @@ function defValorTemporizador(kpress){
             pause = true;
             temporizador.classList.remove('tempo','aviso');
             if (deftimer === null || deftimer == "00:00"){
-                deftimer = "59:00";
+                deftimer = "01:30";
             }
             temporizador.innerHTML = deftimer;
             break;
@@ -86,10 +89,13 @@ function defValorTemporizador(kpress){
             pause = true;
             break;  
         case "KeyP":
-            if(tempo < 3530){
-                tempo += 10;
+            if(tempo < 3500){
+                tempo += 40;
                 iniciarTemporizador(tempo,temporizador)
-            } 
+            }else{
+                pause = false;
+                iniciarTemporizador(tempo,temporizador)
+            }
             break;
 
     }
